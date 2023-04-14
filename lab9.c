@@ -84,8 +84,8 @@ void insertRecord(struct HashType *hashTable, struct RecordType *record, int tab
     struct RecordType *tempTraverse = NULL;
     
     // call the hash function to get the index
-    // I'll use each record ID + record name and modulo it to get my hash value.
-    hashIndex = hash(record->id + record->name, tableSize);
+    // I'll use each record ID and modulo it to get my hash value.
+    hashIndex = hash(record->id, tableSize);
 
     // if the RecordType at that index is NULL
         // set 'record' equal to the HashType pointer in the table at index
@@ -123,7 +123,7 @@ void displayRecordsInHash(struct HashType *hashTable, int tableSize)
     printf("==========================================\n");
     printf("|              HASH TABLE                |\n"      
            "==========================================\n"
-           "*Hash key* = (ID + ASCII value of name char) modulo tableSize\n\n");
+           "*Hash key* = (ID) modulo tableSize\n\n");
 
     for (int i = 0; i < tableSize; i++)
     {
